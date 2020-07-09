@@ -51,3 +51,32 @@ motor.drive(ON, CW);   // 모터 회전 방향을 CW로 하고 동작시킴
 motor.drive(OFF, CCW); // 모터 회전방향을 CCW로 하고 동작을 정지함
 ~~~
 모터의 회전 방향을 선택하고 키거나 끈다
+
+## 예제
+~~~c++
+#include "inverter.h"
+
+Motor motor(3, 4, 5);
+
+void setup() {}
+
+void loop() {
+  for(int i=0; i<=60; i+=10) {
+    motor.set_speed(i); //속도를 i로 설정
+
+    //2초동안 시계방향 회전
+    motor.set_cw(CW); 
+    motor.drive(ON);
+    delay(2000);
+
+    //2초 동안 OFF
+    motor.drive(OFF);
+    delay(2000);
+
+    //2초 동안 시계반대방향 회전
+    motor.set_cw(CCW);
+    motor.drive(ON);
+    delay(2000);
+  }
+}
+~~~
