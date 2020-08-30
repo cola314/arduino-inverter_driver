@@ -1,5 +1,6 @@
 # arduino-inverter_driver
 ### inverter driver
+LS산전의 인버터 제어용 드라이버
 
 ## 헤더파일 추가
 ~~~c++
